@@ -1,0 +1,120 @@
+﻿<Window x:Class="_2DTicTacToe.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_2DTicTacToe"
+        mc:Ignorable="d"
+        Title="2D Tic Tac Toe" Height="600" Width="600" WindowStartupLocation="CenterScreen">
+	<Grid>
+		<Canvas Name="myCanvas">
+
+			<!-- Scoreboard Labels -->
+			<Label x:Name="xWinsLabel" Content="Number of games won by X: 0"
+                   Canvas.Left="10" Canvas.Top="10"
+				   Foreground="Green"
+                   FontSize="12"/>
+			<Label x:Name="oWinsLabel" Content="Number of games won by O: 0"
+                   Canvas.Left="10" Canvas.Top="30"
+				   Foreground="Green"
+                   FontSize="12"/>
+			<Label x:Name="tieLabel" Content="Number of ties: 0"
+                   Canvas.Left="10" Canvas.Top="50"
+				   Foreground="Green"
+                   FontSize="12"/>
+
+			<!-- Label "X Wins!", "O Wins!" or "Tie!" -->
+			<Label x:Name ="tempLabel"
+                   Content=""
+                   Canvas.Left="207"
+                   Canvas.Top="35"
+                   Height="71"
+                   Width="190"
+                   FontSize="55"
+                   FontFamily="Sitka Banner"
+                   HorizontalContentAlignment="Center"/>
+
+			<!-- 3x3 Tic-Tac-Toe Grid -->
+			<Grid Height="300" Width="300" Canvas.Top="150" Canvas.Left="150">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="100" />
+					<RowDefinition Height="100" />
+					<RowDefinition Height="100" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="100" />
+					<ColumnDefinition Width="100" />
+					<ColumnDefinition Width="100" />
+				</Grid.ColumnDefinitions>
+				<Border Name="b00" Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="0 0 1 1" />
+				<Border Name="b01" Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1 0 1 1" />
+				<Border Name="b02" Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="1 0 0 1" />
+				<Border Name="b10" Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="0 1 1 1" />
+				<Border Name="b11" Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1 1 1 1" />
+				<Border Name="b12" Grid.Row="1" Grid.Column="2" BorderBrush="Black" BorderThickness="1 1 0 1" />
+				<Border Name="b20" Grid.Row="2" Grid.Column="0" BorderBrush="Black" BorderThickness="0 1 1 0" />
+				<Border Name="b21" Grid.Row="2" Grid.Column="1" BorderBrush="Black" BorderThickness="1 1 1 0" />
+				<Border Name="b22" Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="1 1 0 0" />
+			</Grid>
+
+			<!-- X Pieces -->
+			<local:GamePiece x:Name="x1" Source="/img/LetterX.png" Height="50" Width="50"
+                   PreviewMouseMove="Image_PreviewMouseMove"
+                   PreviewMouseDown="Image_PreviewMouseDown"
+                   PreviewMouseUp="Image_PreviewMouseUp"
+                   Canvas.Left="30" Canvas.Top="180" />
+			<local:GamePiece x:Name="x2" Source="/img/LetterX.png" Height="50" Width="50"
+                   PreviewMouseMove="Image_PreviewMouseMove"
+                   PreviewMouseDown="Image_PreviewMouseDown"
+                   PreviewMouseUp="Image_PreviewMouseUp"
+                   Canvas.Left="30" Canvas.Top="260" />
+			<local:GamePiece x:Name="x3" Source="/img/LetterX.png" Height="50" Width="50"
+                   PreviewMouseMove="Image_PreviewMouseMove"
+                   PreviewMouseDown="Image_PreviewMouseDown"
+                   PreviewMouseUp="Image_PreviewMouseUp"
+                   Canvas.Left="30" Canvas.Top="340" />
+			<local:GamePiece x:Name="x4" Source="/img/LetterX.png" Height="50" Width="50"
+                   PreviewMouseMove="Image_PreviewMouseMove"
+                   PreviewMouseDown="Image_PreviewMouseDown"
+                   PreviewMouseUp="Image_PreviewMouseUp"
+                   Canvas.Left="30" Canvas.Top="420" />
+			<local:GamePiece x:Name="x5" Source="/img/LetterX.png" Height="50" Width="50"
+                   PreviewMouseMove="Image_PreviewMouseMove"
+                   PreviewMouseDown="Image_PreviewMouseDown"
+                   PreviewMouseUp="Image_PreviewMouseUp"
+                   Canvas.Left="30" Canvas.Top="500" />
+
+			<!-- O Pieces -->
+			<local:GamePiece x:Name="o1" Source="/img/LetterO.png" Height="50" Width="50"
+                   PreviewMouseMove="Image_PreviewMouseMove"
+                   PreviewMouseDown="Image_PreviewMouseDown"
+                   PreviewMouseUp="Image_PreviewMouseUp"
+                   Canvas.Left="530" Canvas.Top="260" />
+			<local:GamePiece x:Name="o2" Source="/img/LetterO.png" Height="50" Width="50"
+                   PreviewMouseMove="Image_PreviewMouseMove"
+                   PreviewMouseDown="Image_PreviewMouseDown"
+                   PreviewMouseUp="Image_PreviewMouseUp"
+                   Canvas.Left="530" Canvas.Top="340" />
+			<local:GamePiece x:Name="o3" Source="/img/LetterO.png" Height="50" Width="50"
+                   PreviewMouseMove="Image_PreviewMouseMove"
+                   PreviewMouseDown="Image_PreviewMouseDown"
+                   PreviewMouseUp="Image_PreviewMouseUp"
+                   Canvas.Left="530" Canvas.Top="420" />
+			<local:GamePiece x:Name="o4" Source="/img/LetterO.png" Height="50" Width="50"
+                   PreviewMouseMove="Image_PreviewMouseMove"
+                   PreviewMouseDown="Image_PreviewMouseDown"
+                   PreviewMouseUp="Image_PreviewMouseUp"
+                   Canvas.Left="530" Canvas.Top="500" />
+
+			<!-- "Play Again" button -->
+			<Button x:Name ="tempButton"
+					Background="LightGreen"
+                    Content="Play Again"
+                    Canvas.Left="215"
+                    Canvas.Top="500"
+                    Width="150"
+                    Height="50"
+                    Click="tempButton_Click"/>
+		</Canvas>
+	</Grid>
+</Window>
